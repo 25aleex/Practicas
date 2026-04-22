@@ -882,7 +882,7 @@
   <div class="videos-grid">
 
     <!-- Vídeo destacado -->
-    <div class="video-card" onclick="abrirModal('El descenso a la mina: una jornada completa', 'Recreación completa de una jornada laboral en el Pozo San Vicente a principios del siglo XX. Desde la llegada de los mineros hasta el ascenso al final del turno.')">
+    <div class="video-card" onclick="abrirModal('El descenso a la mina: una jornada completa', 'Recreación completa de una jornada laboral en el Pozo San Vicente a principios del siglo XX. Desde la llegada de los mineros hasta el ascenso al final del turno.','VideosIA/videoJornadaLaboral.mp4')">
       <div class="video-thumb vt-1">
         <div class="video-ia-badge">Generado con IA</div>
         <div class="video-play-btn">
@@ -907,7 +907,7 @@
     </div>
 
     <!-- Vídeo 2 -->
-    <div class="video-card" onclick="abrirModal('La jaula de extracción', 'El sistema de transporte vertical que conectaba los niveles inferiores con la superficie. Los mineros llamaban «la jaula» al ascensor de la mina.')">
+    <div class="video-card" onclick="abrirModal('La jaula de extracción', 'El sistema de transporte vertical que conectaba los niveles inferiores con la superficie. Los mineros llamaban «la jaula» al ascensor de la mina.', 'VideosIA/videoJaulaDeExtraccion.mp4')">
       <div class="video-thumb vt-2">
         <div class="video-ia-badge">Generado con IA</div>
         <div class="video-play-btn">
@@ -925,7 +925,7 @@
     </div>
 
     <!-- Vídeo 3 -->
-    <div class="video-card" onclick="abrirModal('Arranque y voladura del carbón', 'Demostración de las técnicas de extracción del carbón: desde el pico manual hasta el uso de explosivos a mediados del siglo XX.')">
+    <div class="video-card" onclick="abrirModal('Arranque y voladura del carbón', 'Demostración de las técnicas de extracción del carbón: desde el pico manual hasta el uso de explosivos a mediados del siglo XX.','VideosIA/videoVoladuraCarbon.mp4')">
       <div class="video-thumb vt-3">
         <div class="video-ia-badge">Generado con IA</div>
         <div class="video-play-btn">
@@ -943,7 +943,7 @@
     </div>
 
     <!-- Vídeo 4 -->
-    <div class="video-card" onclick="abrirModal('La enfermería y el aseo de la mina', 'Recreación de los espacios sociales de la mina: la casa-aseo, la enfermería y el economato. La vida más allá del tajo.')">
+    <div class="video-card" onclick="abrirModal('La enfermería y el aseo de la mina', 'Recreación de los espacios sociales de la mina: la casa-aseo, la enfermería y el economato. La vida más allá del tajo.','VideosIA/videoAseoyEnfermeria.mp4')">
       <div class="video-thumb vt-4">
         <div class="video-ia-badge">Generado con IA</div>
         <div class="video-play-btn">
@@ -1183,29 +1183,45 @@
 <div class="modal-overlay" id="modal" onclick="cerrarModal(event)">
   <div class="modal-box">
     <button class="modal-cerrar" onclick="document.getElementById('modal').classList.remove('activo')">✕</button>
-    <div class="modal-video-placeholder">
-      <span>▶</span>
-      <span>Aquí irá tu vídeo generado con IA</span>
-      <span style="font-size:11px;color:#444;">Sustituye este bloque por un &lt;iframe&gt; de YouTube/Vimeo<br>o un elemento &lt;video&gt; con tu archivo</span>
-    </div>
+    <video id="modal-video" width="100%" controls>
+      <source src="" type="video/mp4">
+    </video>
     <h3 class="modal-vid-titulo" id="modal-titulo"></h3>
     <p class="modal-vid-desc" id="modal-desc"></p>
   </div>
 </div>
 
+
 <script>
-function abrirModal(titulo, desc) {
+function abrirModal(titulo, desc, videoSrc) {
   document.getElementById('modal-titulo').textContent = titulo;
   document.getElementById('modal-desc').textContent = desc;
+
+  const video = document.getElementById('modal-video');
+  video.querySelector('source').src = videoSrc;
+  video.load();
+
   document.getElementById('modal').classList.add('activo');
 }
+
 function cerrarModal(e) {
-  if (e.target === document.getElementById('modal')) {
-    document.getElementById('modal').classList.remove('activo');
+  const modal = document.getElementById('modal');
+
+  if (e.target === modal) {
+    modal.classList.remove('activo');
+
+    const video = document.getElementById('modal-video');
+    video.pause();
   }
 }
+
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') document.getElementById('modal').classList.remove('activo');
+  if (e.key === 'Escape') {
+    document.getElementById('modal').classList.remove('activo');
+
+    const video = document.getElementById('modal-video');
+    video.pause();
+  }
 });
 </script>
 </body>
