@@ -761,6 +761,8 @@
     margin-bottom: 1.2rem;
   }
 
+
+
   .modal-video-placeholder span:first-child {
     font-size: 2rem;
     color: var(--dorado);
@@ -885,6 +887,7 @@
     <div class="video-card" onclick="abrirModal('El descenso a la mina: una jornada completa', 'Recreación completa de una jornada laboral en el Pozo San Vicente a principios del siglo XX. Desde la llegada de los mineros hasta el ascenso al final del turno.','VideosIA/videoJornadaLaboral.mp4')">
       <div class="video-thumb vt-1">
         <div class="video-ia-badge">Generado con IA</div>
+        <img src="VideosIA/mina.jpg" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;">
         <div class="video-play-btn">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
             <polygon points="7,4 19,11 7,18" fill="#c8960a"/>
@@ -910,6 +913,7 @@
     <div class="video-card" onclick="abrirModal('La jaula de extracción', 'El sistema de transporte vertical que conectaba los niveles inferiores con la superficie. Los mineros llamaban «la jaula» al ascensor de la mina.', 'VideosIA/videoJaulaDeExtraccion.mp4')">
       <div class="video-thumb vt-2">
         <div class="video-ia-badge">Generado con IA</div>
+        <img src="VideosIA/jaula.jpg" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;">
         <div class="video-play-btn">
           <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
             <polygon points="7,4 19,11 7,18" fill="#c8960a"/>
@@ -928,6 +932,7 @@
     <div class="video-card" onclick="abrirModal('Arranque y voladura del carbón', 'Demostración de las técnicas de extracción del carbón: desde el pico manual hasta el uso de explosivos a mediados del siglo XX.','VideosIA/videoVoladuraCarbon.mp4')">
       <div class="video-thumb vt-3">
         <div class="video-ia-badge">Generado con IA</div>
+        <img src="VideosIA/pico.jpg" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;">
         <div class="video-play-btn">
           <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
             <polygon points="7,4 19,11 7,18" fill="#c8960a"/>
@@ -946,6 +951,7 @@
     <div class="video-card" onclick="abrirModal('La enfermería y el aseo de la mina', 'Recreación de los espacios sociales de la mina: la casa-aseo, la enfermería y el economato. La vida más allá del tajo.','VideosIA/videoAseoyEnfermeria.mp4')">
       <div class="video-thumb vt-4">
         <div class="video-ia-badge">Generado con IA</div>
+        <img src="VideosIA/enfermeria.jpg" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;">
         <div class="video-play-btn">
           <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
             <polygon points="7,4 19,11 7,18" fill="#c8960a"/>
@@ -1184,6 +1190,7 @@
   <div class="modal-box">
     <button class="modal-cerrar" onclick="document.getElementById('modal').classList.remove('activo')">✕</button>
     <video id="modal-video" width="100%" controls>
+      
       <source src="" type="video/mp4">
     </video>
     <h3 class="modal-vid-titulo" id="modal-titulo"></h3>
